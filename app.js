@@ -5,6 +5,8 @@ const deleteButton = document.querySelector('.del');
 const allClearButton = document.querySelector('.allClear');
 const previousOperandTextElement = document.querySelector('.previousOperand');
 const currentOperandTextElement = document.querySelector('.currentOperand');
+const changeValue = document.querySelector('.changeValue');
+const copyBtn = document.querySelector('.copy');
 
 class Calculator {
  constructor(previousOperandTextElement, currentOperandTextElement) {
@@ -64,7 +66,6 @@ class Calculator {
   this.operation = undefined;
   this.previousOperand = '';
  }
- getDisplayNumber() {}
  updateDisplay() {
   this.currentOperandTextElement.innerText = this.currentOperand;
   if (this.operation != null) {
@@ -72,6 +73,9 @@ class Calculator {
   } else {
    this.previousOperandTextElement.innerText = '';
   }
+ }
+ copy() {
+  navigator.clipboard.writeText(this.currentOperand);
  }
 }
 
@@ -107,4 +111,13 @@ allClearButton.addEventListener('click', (button) => {
 deleteButton.addEventListener('click', (button) => {
  calculator.delete();
  calculator.updateDisplay();
+});
+
+changeValue.addEventListener('click', (button) => {
+ calculator.changeValue();
+ calculator.updateDisplay();
+});
+
+copyBtn.addEventListener('click', (button) => {
+ calculator.copy();
 });
