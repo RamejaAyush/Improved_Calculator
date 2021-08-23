@@ -61,8 +61,8 @@ main .cal-wrapper {
  flex-direction: column;
 }
 
-.cal-wrapper .top-section .output .firstValue,
-.cal-wrapper .top-section .output .secondValue {
+.cal-wrapper .top-section .output .previousOperand,
+.cal-wrapper .top-section .output .currentOperand {
  color: black;
  width: 90%;
  height: 50%;
